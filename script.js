@@ -2,8 +2,6 @@ const textbox = document.getElementById("text");
 const downloadBtn = document.getElementById("download");
 const uploadBtn = document.getElementById("upload");
 
-let isAltDown = false; //TODO: need new key becuase on mac alt + c produces ç AAAAHAHAHAHWHAHAAAAAAAAAAAAaAAAAAaAAAAAaAAAAAaAAAAAaAAAAAaAAAAAaAAAAAa
-
 function getCursorPosition() {
 	return [textbox.selectionStart, textbox.selectionEnd];
 };
@@ -112,9 +110,8 @@ textbox.addEventListener("keydown", function (event) {
 		event.preventDefault();
 		insertTab();
 	}
-	if (event.key === "Alt") isAltDown = true;
-	if (event.key === "c" && isAltDown) calculate();
-	if (event.key === "r" && isAltDown) replace();
+	if (event.key === "c" && event.key === ":") calculate();
+	if (event.key === "r" && event.key === ":") replace();
 });
 textbox.addEventListener("keyup", function (event) {
 	if (event.key === "Alt") isAltDown = false;
